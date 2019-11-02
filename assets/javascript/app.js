@@ -25,7 +25,7 @@ $(document).ready(function () {
         .then(function (response) {
 
             console.log(response);
-            
+
             for (let i = 0; i < response.articles.length; i++) {
                 NYTheadlines.push(response.articles[i].title);
                 NYTarticles.push(response.articles[i].content);
@@ -55,14 +55,16 @@ $(document).ready(function () {
 
         });
 
-    function compareArticles(array1, array2) {
+    // unfinished:
 
-        for (let i = 0; i < array1.length; i++) {
-            
+    // function compareArticles(array1, array2) {
+
+    //     for (let i = 0; i < array1.length; i++) {
 
 
-        }
 
-    }
+    //     }
+
+
 
 });
