@@ -17,5 +17,9 @@ let mainApp = {};
 function logOut(){
     firebase.auth().signOut();
 }
+
 mainApp.logOut = logOut;
+$("#login").click(function(){
+    mainApp.logOut()
+  });
 })();
