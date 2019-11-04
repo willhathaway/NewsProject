@@ -1,11 +1,8 @@
-html{
-    position: relative;
-    min-height: 100%;
-}
 
-body{
-    /* background-image: url("../images/art-artistic-background-1103970.jpg"); */
-    margin-bottom: 60px;
+
+#header {
+    width:100%;
+    position: relative;
 }
 
 
@@ -15,21 +12,63 @@ body{
     padding:10px;
 }
 
-
-
-a{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.col{
+#search{
     width:100%;
     padding:20px;
+    float:left;
+    outline: black solid 1px;
+    
 }
 
-#search{
-    padding:20px
+#searchBar {
+    width:33%;
+    float:left;
+}
+
+.dropdown {
+    width: 33%;
+}
+
+.dropdown-menu {
+    width:50%;
+    
+}
+
+#searchBtn {
+    width:33%;
+    float: left;
+}
+
+.articleCol {
+    width:50%;
+    float: left;
+}
+
+#articles {
+    background-color: white;
+    min-height:500px;
+}
+
+#sourceName {
+    text-align: center;
+}
+
+#articleDivLeft{
+    height: 500px;
+    width:48%;
+    overflow: auto;
+    float: left;
+    outline: black solid 1px;
+    margin:1%;
+}
+
+#articleDivRight{
+    height: 500px;
+    width:48%;
+    overflow: auto;
+    float: right;
+    outline: black solid 1px;
+    margin:1%;
 }
 
 .footer{
