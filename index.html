@@ -8,14 +8,17 @@
   <!-- Stylesheet References -->
 
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
   <!-- JavaScript References -->
 
 
+  <script src="assets/javascript/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
@@ -40,29 +43,44 @@
           class="form-control form-control-underlined">
 
         <div class='dropdown'>
-          <div style="width:50%;float:left">
-            <select id='dropdown1'>
 
-            </select>
-          </div>
-          <div style="width:50%;float:left;">
-            <select id='dropdown2'>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Sources
+          </button>
 
-            </select>
+          <div class="dropdown-menu-left" aria-labelledby="dropdown1">
+
           </div>
+
         </div>
 
-        <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn' onclick="articleFunction()">Search</button>
+        <div class="dropdown">
+
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Sources
+          </button>
+
+          <div class="dropdown-menu-right" aria-labelledby="dropdown2">
+
+          </div>
+
+        </div>
+
+        <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
+
 
       </div>
+
   </div>
   <br>
 
 
-  <div class='jumbotron' id='articles'>
-    <div class='jumbotron' id='articleDivLeft'></div>
-    <div class='jumbotron' id='articleDivRight'></div>
-  </div>
+
+  <div class='jumbotron' id='articleDivLeft'></div>
+  <div class='jumbotron' id='articleDivRight'></div>
+
 
 
 </body>

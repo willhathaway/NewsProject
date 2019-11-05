@@ -1,25 +1,53 @@
+//$(document).ready(function() {
+
 let APIkey = 'a93e9eaa48f8479c927c31d2e61713c0';
 
 // global variables:
 
 // empty arrays to be filled by ajax request:
 
-let sourceArray = ['foxnews.com', 'nytimes.com', 'wsj.com', 'huffpost.com', 'bbc.com/news'];
+let sourceArray = [
+    fox = {
+        name: 'Fox News',
+        url: 'foxnews.com',
+        logo: 'fox.jpg'
+    },
+    nytimes = {
+        name: 'The New York Times',
+        url: 'nytimes.com',
+        logo: ''
+    },
+    wsj = {
+        name: 'The Wall Street Journal',
+        url: 'wsj.com',
+        logo: ''
+    },
+    huffpo = {
+        name: 'The Huffington Post',
+        url: 'huffpost.com',
+        logo: ''
+    },
+    bbc = {
+        name: 'BBC News',
+        url: 'bbc.com/news',
+        logo: ''
+    }
+];
+
+$(document).ready(function(){
 
 for (let i = 0; i < sourceArray.length; i++) {
 
-    $('#dropdown1').append('<option>').val(sourceArray[i]).text(sourceArray[i]);
+    $('#dropdown-menu-left').append('<a class="dropdown-item">').val(sourceArray[i].url).text(sourceArray[i].name);
 
-    $('#dropdown2').append('<option>').val(sourceArray[i]).text(sourceArray[i]);
+    $('#dropdown-menu-right').append('<a class="dropdown-item">').val(sourceArray[i].url).text(sourceArray[i].name);
 
 }
+});
 
-let headlines1 = [];
-let articles1 = [];
-let headlines2 = [];
-let articles2 = [];
+$(document).on('click', '#searchBtn', function articleFunction(event) {
 
-function articleFunction() {
+    event.preventDefault();
 
     let source1 = 'nytimes.com';
     let source2 = 'foxnews.com';
@@ -28,8 +56,6 @@ function articleFunction() {
 
     let query1 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source1 + '&pageSize=1&apiKey=' + APIkey + '';
     let query2 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source2 + '&pageSize=1&apiKey=' + APIkey + '';
-
-    //let articlePair = $("<div class='jumbotron' id='articlePair'>");
 
     $.ajax({
             url: query1,
@@ -42,12 +68,10 @@ function articleFunction() {
 
             for (let i = 0; i < response.articles.length; i++) {
 
-                headlines1.push(response.articles[i].title);
-                articles1.push(response.articles[i].content);
-
-                let articleDiv = $("<div id='articleContent'" + i +">");
+                let articleDiv = $("<div id='articleContent'" + i + ">");
                 let sourceName = $('<h3 id="sourceName">').text(source1);
-
+                let author = $('<h4 id="author">').text(response.articles[i].author);
+                let datePublished = $('<h4 id="author">').text(response.articles[i].publishedAt);
 
                 let title = $("<h3 id='title'>");
                 $(title).addClass("title");
@@ -60,16 +84,12 @@ function articleFunction() {
 
                 $(sourceName).appendTo(articleDiv);
                 $(title).appendTo(articleDiv);
+                $(author).appendTo(articleDiv);
+                $(datePublished).appendTo(articleDiv);
                 $(article).appendTo(articleDiv);
                 $(articleDiv).appendTo('#articleDivLeft');
 
-
             }
-
-
-            $('#article1').append('<p>' + articles1[0] + '</p>');
-            console.log(articles1);
-
 
         });
 
@@ -83,11 +103,11 @@ function articleFunction() {
             console.log(response);
 
             for (let i = 0; i < response.articles.length; i++) {
-                headlines2.push(response.articles[i].title);
-                articles2.push(response.articles[i].content);
 
                 let articleDiv = $("<div id='articleContent'" + i + ">");
                 let sourceName = $('<h3 id="sourceName">').text(source2);
+                let author = $('<h4 id="author">').text(response.articles[i].author);
+                let datePublished = $('<h4 id="author">').text(response.articles[i].publishedAt);
 
                 let title = $("<h3 id='title'>");
                 $(title).addClass("title");
@@ -100,17 +120,18 @@ function articleFunction() {
 
                 $(sourceName).appendTo(articleDiv);
                 $(title).appendTo(articleDiv);
+                $(author).appendTo(articleDiv);
+                $(datePublished).appendTo(articleDiv);
                 $(article).appendTo(articleDiv);
                 $(articleDiv).appendTo('#articleDivRight');
 
             }
 
-            console.log(headlines2);
 
-            
+
 
 
         });
 
 
-};
+});

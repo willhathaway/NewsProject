@@ -1,77 +1,90 @@
-
+body {
+    background-image: url('../images/background.jpg');
+    width: 100%;
+}
 
 #header {
-    width:100%;
+    width: 100%;
     position: relative;
 }
 
 
-#damn{
+#damn {
+    color: white;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    padding:10px;
+    padding: 10px;
 }
 
-#search{
-    width:100%;
-    padding:20px;
-    float:left;
+#search {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    float: left;
     outline: black solid 1px;
-    
+
 }
 
 #searchBar {
-    width:33%;
-    float:left;
+    width: 33%;
+    float: left;
+}
+
+.sources {
+
+    width: 33%;
+    position: relative;
+
 }
 
 .dropdown {
     width: 33%;
+    position: relative;
 }
 
 .dropdown-menu {
-    width:50%;
-    
+    width: 50%;
+
 }
 
 #searchBtn {
-    width:33%;
+    width: 33%;
     float: left;
 }
 
 .articleCol {
-    width:50%;
+    width: 50%;
     float: left;
 }
 
 #articles {
     background-color: white;
-    min-height:500px;
+    min-height: 500px;
 }
 
 #sourceName {
     text-align: center;
 }
 
-#articleDivLeft{
+#articleDivLeft {
     height: 500px;
-    width:48%;
+    width: 48%;
     overflow: auto;
     float: left;
     outline: black solid 1px;
-    margin:1%;
+    margin: 1%;
 }
 
-#articleDivRight{
+#articleDivRight {
     height: 500px;
-    width:48%;
+    width: 48%;
     overflow: auto;
     float: right;
     outline: black solid 1px;
-    margin:1%;
+    margin: 1%;
 }
 
-.footer{
+.footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -85,4 +98,3 @@
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
 }
-    
