@@ -1,5 +1,6 @@
 body {
-    background-image: url('../images/background.jpg');
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: rgb(153, 180, 212);;
     width: 100%;
 }
 
@@ -66,7 +67,7 @@ body {
     text-align: center;
 }
 
-#articleDivLeft {
+#left {
     height: 500px;
     width: 48%;
     overflow: auto;
@@ -75,13 +76,34 @@ body {
     margin: 1%;
 }
 
-#articleDivRight {
+#right {
     height: 500px;
     width: 48%;
     overflow: auto;
     float: right;
     outline: black solid 1px;
     margin: 1%;
+}
+
+#articleDivLeft {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+    outline: black solid 1px;
+    margin: 1%;
+}
+
+#articleDivRight {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+    outline: black solid 1px;
+    margin: 1%;
+}
+
+#word-cloud {
+    height:200px;
+    background-color: gainsboro;
 }
 
 .footer {
