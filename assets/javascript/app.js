@@ -1,3 +1,4 @@
+
 //$(document).ready(function() {
 
 let APIkey = 'a93e9eaa48f8479c927c31d2e61713c0';
@@ -33,6 +34,7 @@ let sourceArray = [
 ];
 
 // dynamically adds the sources to two dropdown menus (NOT WORKING):
+
 
 $(document).ready(function () {
 
@@ -244,3 +246,4 @@ function draw(words) {
         });
 
 }
+
