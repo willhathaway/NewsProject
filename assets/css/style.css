@@ -13,7 +13,22 @@ body{
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
     padding:10px;
+
 }
+
+.news{
+    padding: 150px;
+    margin: 50px;
+    background-color: honeydew;
+    border: 5px solid green;
+}
+
+/* .word{
+    padding: 150px;
+    margin: 50px;
+    background-color: honeydew;
+    border: 5px solid green;
+} */
 
 
 
@@ -28,8 +43,10 @@ a{
 }
 
 #search{
-    padding:20px
+    padding:50px;
+    margin: 40px;
 }
+
 
 .footer{
     position: absolute;

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function () {
 
     // API key: a93e9eaa48f8479c927c31d2e61713c0
@@ -69,6 +68,4 @@ $(document).ready(function () {
 
 
 });
-=======
 
->>>>>>> master
