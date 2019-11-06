@@ -2,93 +2,94 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>News</title>
+  <meta charset="UTF-8">
+  <title>News</title>
 
-    <!-- Stylesheet References -->
+  <!-- Stylesheet References -->
 
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
-    <!-- JavaScript References -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <!-- JavaScript References -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Popper-->
+  <script src="assets/javascript/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!--D3-->
+  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="assets/javascript/d3.layout.cloud.js"></script>
+  <!--Bootbox-->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js"></script> -->
+  <!--MomentJS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <!-- <script src="lodash.js"></script> -->
+  <!--Local JS file-->
+  <script src="assets/javascript/app.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
+
 <body>
-<<<<<<< HEAD
-    <header><h2>NEWS APP</h2></header>
-=======
-  <div class= "container">
- <header>
-     <h1 id= "damn">Make Up Your Own Goddamn Mind!</h1>
- </header>
- <br>
- <form>
-    <div class="row" id="search">
-      <div class="form-group col-md-3">
-        <input id="exampleFormControlInput5" type="text" placeholder="What're you searching for?" class="form-control form-control-underlined">
+
+
+  <div class="container" id="header">
+    <header>
+      <h1 id="damn">Article Compare</h1>
+    </header>
+    <br>
+    <form>
+      <div class="row" id="search">
+
+        <input id="searchBar" type="text" placeholder="What are you searching for?"
+          class="form-control form-control-underlined">
+
+        <div class='dropdown1'>
+
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Sources
+          </button>
+
+          <div class="dropdown-menu" id='left' aria-labelledby="dropdown1" onchange="selectFunction(this);">
+
+          </div>
+
+        </div>
+
+        <div class="dropdown2">
+
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Sources
+          </button>
+
+          <div class="dropdown-menu" id='right' aria-labelledby="dropdownButton2" onchange="selectFunction(this);">
+
+          </div>
+
+        </div>
+
+        <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
+
+
       </div>
-      <div class="form-group col-md-3">
-        <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
-      </div>
-      <div class="col-md-6"></div>
-    </div>
-  </form>
- <br>
- <div class="container1">
-    <div class="row">
-    <a href="">
-      <div class="col">Column</div>
-    </a>
-    <a href="">
-      <div class="col">Column</div>
-    </a>
-      <div class="w-100"></div>
-    <a href="">
-      <div class="col">Column</div>
-    </a>
-    <a href="">
-      <div class="col">Column</div>
-    </a>
-    </div>
+
   </div>
   <br>
-  <div class="columns">
-      <div class="row">
-      <a href="">
-        <div class="col">Column</div>
-      </a>
-      <a href="">
-        <div class="col">Column</div>
-      </a>
-        <div class="w-100"></div>
-      <a href="">
-        <div class="col">Column</div>
-      </a>
-      <a href="">
-        <div class="col">Column</div>
-      </a>
-      </div>
-    </div>
-  </div>
+
+  <div class='jumbotron' id='leftDiv'></div>
+  <div class='jumbotron' id='rightDiv'></div>
 
 
-
-
->>>>>>> master
-
-<footer class="footer">
-        <div class="container">
-        <span class="credits">Make Up Your Own Damn Mind! || 2019</span>
-        </div>
-</footer>
 
 </body>
 
