@@ -1,54 +1,112 @@
-html{
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: rgb(153, 180, 212);;
+    width: 100%;
+}
+
+#header {
+    width: 100%;
     position: relative;
-    min-height: 100%;
-}
-
-body{
-    background-image: url("../images/art-artistic-background-1103970.jpg");
-    margin-bottom: 60px;
 }
 
 
-#damn{
+#damn {
+    color: white;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    padding:10px;
+    padding: 10px;
+}
+
+#search {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    float: left;
+    outline: black solid 1px;
 
 }
 
-.news{
-    padding: 150px;
-    margin: 50px;
-    background-color: honeydew;
-    border: 5px solid green;
+#searchBar {
+    width: 33%;
+    float: left;
 }
 
-/* .word{
-    padding: 150px;
-    margin: 50px;
-    background-color: honeydew;
-    border: 5px solid green;
-} */
+.sources {
 
+    width: 33%;
+    position: relative;
 
-
-a{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.col{
-    padding:20px;
+.dropdown {
+    width: 33%;
+    position: relative;
 }
 
-#search{
-    padding:50px;
-    margin: 40px;
+.dropdown-menu {
+    width: 50%;
+
 }
 
+#searchBtn {
+    width: 100px;
+    float: left;
+}
 
-.footer{
+.articleCol {
+    width: 50%;
+    float: left;
+}
+
+#articles {
+    background-color: white;
+    min-height: 500px;
+}
+
+#sourceName {
+    text-align: center;
+}
+
+#leftDiv {
+    height: 500px;
+    width: 48%;
+    overflow: auto;
+    float: left;
+    outline: black solid 1px;
+    margin: 1%;
+}
+
+#rightDiv {
+    height: 500px;
+    width: 48%;
+    overflow: auto;
+    float: right;
+    outline: black solid 1px;
+    margin: 1%;
+}
+
+#articleDivLeft {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+    outline: black solid 1px;
+    margin: 1%;
+}
+
+#articleDivRight {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+    outline: black solid 1px;
+    margin: 1%;
+}
+
+#word-cloud {
+    height:200px;
+    background-color: gainsboro;
+}
+
+.footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -62,4 +120,3 @@ a{
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
 }
-    
