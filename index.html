@@ -33,6 +33,7 @@
   <!-- <script src="lodash.js"></script> -->
   <!--Local JS file-->
   <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/cloud.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -56,7 +57,7 @@
           <div class='dropdown1'>
 
             <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
-              Sources
+                <option selected="true" disabled="disabled">Choose Source 1</option>    
             </select>
 
           </div>
@@ -64,14 +65,12 @@
           <div class="dropdown2">
 
             <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
-              Sources
+              <option selected="true" disabled="disabled">Choose Source 2</option>    
             </select>
 
           </div>
 
         </div>
-
-
 
         <div class='row' id='searchBtnDiv'>
           <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
@@ -82,8 +81,10 @@
   </div>
   <br>
 
-  <div class='jumbotron' id='leftDiv'></div>
-  <div class='jumbotron' id='rightDiv'></div>
+  <div class='jumbotron' id='articleDiv'></div>
+
+  <!-- <div class='jumbotron' id='leftDiv'></div>
+  <div class='jumbotron' id='rightDiv'></div> -->
 
 
 
