@@ -38,23 +38,37 @@ $(document).ready(function () {
 
     for (let i = 0; i < sourceArray.length; i++) {
 
-        $('#dropdown-menu-left').append('<a class="dropdown-item">').val(sourceArray[i].url).text(sourceArray[i].name);
-
-        $('#dropdown-menu-right').append('<a class="dropdown-item">').val(sourceArray[i].url).text(sourceArray[i].name);
-
+        $('#left').append('<option value="' + sourceArray[i].url + '" class="dropdown-item">' + sourceArray[i].name + '</option>') //.val(sourceArray[i].url).text(sourceArray[i].name);
+        $('#right').append('<option value="'+sourceArray[i].url+'" class="dropdown-item">'+sourceArray[i].name+'</option>')
     }
 });
 
 // on-click function to make an API request and display the response data in html:
 
+function selectFunction(selection) {
+
+    console.log('option selected', selection.options[selected.selectedIndex].text);
+
+}
+
 $(document).on('click', '#searchBtn', function articleFunction(event) {
+
+    //alert($("#left").val())
+
 
     event.preventDefault();
 
-    // placeholder values until dropdown is fixed:
+    // let source1 = $('#left');
+    // let source2 = $('#right');
+    // let value1 = (source1[0].children);
+    // let value2 = (source1[0].children);
+    // console.log(value1);
+    // console.log(value2);
+    // console.log(source1);
+    // console.log(source2);
 
-    let source1 = 'nytimes.com';
-    let source2 = 'foxnews.com';
+    let source1 = 'nytimes.com'
+    let source2 = 'foxnews.com'
 
     // keyword taken from user input:
 
@@ -64,6 +78,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
     if (keyword == '') {
         alert('please enter a keyword')
+
         return;
     } else if (keyword.includes(' ')) {
         alert('please enter only one word')
@@ -121,7 +136,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                 // appending the div to the html:
 
                 $(articleDiv).appendTo(articleDivLeft);
-                $(articleDivLeft).appendTo('#left');
+                $(articleDivLeft).appendTo('#leftDiv');
 
             }
         });
@@ -168,7 +183,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                 // appending the div to the html:
 
                 $(articleDiv).appendTo(articleDivRight);
-                $(articleDivRight).appendTo('#right');
+                $(articleDivRight).appendTo('#rightDiv');
 
             }
         });
@@ -180,7 +195,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 let width = 300;
 let height = 300;
 //let fill = d3.scaleOrdinal(d3.schemeCategory20);
-let fill = d3.scale.category20();
+// let fill = d3.scale.category20();
 
 
 d3.layout.cloud().size([300, 300])

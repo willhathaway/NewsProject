@@ -67,7 +67,7 @@ body {
     text-align: center;
 }
 
-#left {
+#leftDiv {
     height: 500px;
     width: 48%;
     overflow: auto;
@@ -76,7 +76,7 @@ body {
     margin: 1%;
 }
 
-#right {
+#rightDiv {
     height: 500px;
     width: 48%;
     overflow: auto;

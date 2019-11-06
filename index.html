@@ -17,15 +17,21 @@
 
   <!-- JavaScript References -->
 
-
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Popper-->
   <script src="assets/javascript/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!--D3-->
   <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
   <script src="assets/javascript/d3.layout.cloud.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Bootbox-->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js"></script> -->
+  <!--MomentJS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
   <!-- <script src="lodash.js"></script> -->
+  <!--Local JS file-->
   <script src="assets/javascript/app.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,27 +51,27 @@
         <input id="searchBar" type="text" placeholder="What are you searching for?"
           class="form-control form-control-underlined">
 
-        <div class='dropdown'>
+        <div class='dropdown1'>
 
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Sources
           </button>
 
-          <div class="dropdown-menu-left" aria-labelledby="dropdown1">
+          <div class="dropdown-menu" id='left' aria-labelledby="dropdown1" onchange="selectFunction(this);">
 
           </div>
 
         </div>
 
-        <div class="dropdown">
+        <div class="dropdown2">
 
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown2" data-toggle="dropdown"
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton2" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Sources
           </button>
 
-          <div class="dropdown-menu-right" aria-labelledby="dropdown2">
+          <div class="dropdown-menu" id='right' aria-labelledby="dropdownButton2" onchange="selectFunction(this);">
 
           </div>
 
@@ -79,10 +85,8 @@
   </div>
   <br>
 
-
-
-  <div class='jumbotron' id='left'></div>
-  <div class='jumbotron' id='right'></div>
+  <div class='jumbotron' id='leftDiv'></div>
+  <div class='jumbotron' id='rightDiv'></div>
 
 
 
