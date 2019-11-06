@@ -27,30 +27,33 @@ body {
 }
 
 #searchBar {
-    width: 33%;
+    width: 50%;
     float: left;
+}
+
+#searchBtnDiv {
+    width: 100%;
 }
 
 .sources {
 
-    width: 33%;
-    position: relative;
-
-}
-
-.dropdown {
-    width: 33%;
-    position: relative;
-}
-
-.dropdown-menu {
     width: 50%;
+    float: right;
+}
 
+.dropdown-menu-left {
+    width: 50%;
+    float:left;
+}
+
+.dropdown-menu-right {
+    width: 50%;
+    float:left;
 }
 
 #searchBtn {
     width: 33%;
-    float: left;
+    left: 50%;
 }
 
 .articleCol {

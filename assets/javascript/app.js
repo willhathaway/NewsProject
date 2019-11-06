@@ -1,7 +1,12 @@
-
-//$(document).ready(function() {
+// the api key for the news api:
 
 let APIkey = 'a93e9eaa48f8479c927c31d2e61713c0';
+
+// universal variables for the query:
+
+let keyword = '';
+let source1 = '';
+let source2 = '';
 
 // an array of objects to hold the information for constructing the query:
 
@@ -33,54 +38,43 @@ let sourceArray = [
     }
 ];
 
-// dynamically adds the sources to two dropdown menus (NOT WORKING):
-
+// dynamically adds the sources to two dropdown menus:
 
 $(document).ready(function () {
 
     for (let i = 0; i < sourceArray.length; i++) {
 
         $('#left').append('<option value="' + sourceArray[i].url + '" class="dropdown-item">' + sourceArray[i].name + '</option>') //.val(sourceArray[i].url).text(sourceArray[i].name);
-        $('#right').append('<option value="'+sourceArray[i].url+'" class="dropdown-item">'+sourceArray[i].name+'</option>')
+        $('#right').append('<option value="' + sourceArray[i].url + '" class="dropdown-item">' + sourceArray[i].name + '</option>')
     }
 });
 
-// on-click function to make an API request and display the response data in html:
+// functions called when a source is chosen, assigns the source url to a variable for the ajax request:
 
-function selectFunction(selection) {
-
-    console.log('option selected', selection.options[selected.selectedIndex].text);
-
+function selectFunctionLeft(selection) {
+    source1 = (selection.options[selection.selectedIndex].value);
 }
+function selectFunctionRight(selection) {
+    source2 = (selection.options[selection.selectedIndex].value);
+}
+
+// on-click function to make an API request and display the response data in html:
 
 $(document).on('click', '#searchBtn', function articleFunction(event) {
 
-    //alert($("#left").val())
-
-
     event.preventDefault();
 
-    // let source1 = $('#left');
-    // let source2 = $('#right');
-    // let value1 = (source1[0].children);
-    // let value2 = (source1[0].children);
-    // console.log(value1);
-    // console.log(value2);
-    // console.log(source1);
-    // console.log(source2);
-
-    let source1 = 'nytimes.com'
-    let source2 = 'foxnews.com'
+    console.log(source1);
+    console.log(source2);
 
     // keyword taken from user input:
 
-    let keyword = $('#searchBar').val();
+    keyword = $('#searchBar').val();
 
-    // input validation checking for valid input:
+    // input validation checking for valid keyword input:
 
     if (keyword == '') {
         alert('please enter a keyword')
-
         return;
     } else if (keyword.includes(' ')) {
         alert('please enter only one word')
@@ -91,6 +85,16 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
     } else {
         console.log(keyword);
     }
+
+    // input validation for valid source selection:
+
+    if (source1 === '') {
+        alert('please select a source');
+        return;
+    } else if (source2 === '') {
+        alert('please select a source');
+        return;
+    } else{
 
     // urls for ajax query, dynamically generated with user input:
 
@@ -189,7 +193,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
             }
         });
-});
+}});
 
 
 // word cloud:
@@ -246,4 +250,3 @@ function draw(words) {
         });
 
 }
-

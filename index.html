@@ -52,34 +52,30 @@
         <input id="searchBar" type="text" placeholder="What are you searching for?"
           class="form-control form-control-underlined">
 
-        <div class='dropdown1'>
+        <div class='sources'>
+          <div class='dropdown1'>
 
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Sources
-          </button>
+            <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
+              Sources
+            </select>
 
-          <div class="dropdown-menu" id='left' aria-labelledby="dropdown1" onchange="selectFunction(this);">
+          </div>
+
+          <div class="dropdown2">
+
+            <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
+              Sources
+            </select>
 
           </div>
 
         </div>
 
-        <div class="dropdown2">
 
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton2" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Sources
-          </button>
 
-          <div class="dropdown-menu" id='right' aria-labelledby="dropdownButton2" onchange="selectFunction(this);">
-
-          </div>
-
+        <div class='row' id='searchBtnDiv'>
+          <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
         </div>
-
-        <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
-
 
       </div>
 
