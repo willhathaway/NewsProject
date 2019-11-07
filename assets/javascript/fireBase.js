@@ -1,8 +1,10 @@
 // Check if the user is signed in when page loads
 function isUserAuthenticated() {
-  console.log('hitting new function')
+  // console.log('hitting new function')
   // If localStorage has token, return true
   // If localStorage.token is === null, return false
+  // localStorage.clear();
+  $("#message").text('Please sign in');
   return localStorage.getItem('token') !== null;
 }
 
@@ -20,18 +22,20 @@ $(document).ready(function () { // $(document).ready(() => {
   }
 
   $("#login").on("click", function () {
-    event.preventDefault();
+    // event.preventDefault();
     $('#login_modal').modal('show');
   });
 
   $("#logout").on("click", function () {
     // mainApp.logOut()
-
     console.log("hitting logout func");
     firebase.auth().signOut();
     // Clear the token and the name from local storage when a user signs out
+    $('#logout').hide();
+    $('#login').show();
     localStorage.clear();
-    // window.location.reload();
+    window.location.reload();
+    // $("#message").text('Please sign in');
   });
 });
 
@@ -113,22 +117,4 @@ let mainApp = {};
     }
   });
 
-  // function logOut() {
-  //   // firebase.auth().signOut();
-  // }
-  // mainApp.logOut = logOut;
-
-  // $("#logout").on("click", function () {
-  //   mainApp.logOut()
-  //   console.log("hitting logout func");
-  //   // Clear the token from local storage when a user signs out
-  //   // localStorage.removeItem('token');
-  //   // window.location.reload();
-  // });
 })();
-
-// $(".firebaseui-id-submit firebaseui-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored").on("click", function () {
-//   $("login").hide();
-//   $("logout").show();
-// });
-//.attr()
