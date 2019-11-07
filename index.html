@@ -15,40 +15,29 @@
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-  <!-- JavaScript References -->
 
-  <!-- jQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Popper-->
+
   <script src="assets/javascript/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <!--D3-->
-  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="assets/javascript/d3.layout.cloud.js"></script>
-  <!--Bootbox-->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js"></script> -->
-  <!--MomentJS-->
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-  <!-- <script src="lodash.js"></script> -->
-  <!--Local JS file-->
-  <script src="assets/javascript/app.js"></script>
-  <script src="assets/javascript/cloud.js"></script>
+
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <!--D3-->
-  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="assets/javascript/d3.layout.cloud.js"></script>
-  <!--Bootbox-->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js"></script> -->
-  <!--MomentJS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-  <!-- <script src="lodash.js"></script> -->
-  <!--Local JS file-->
-  <script src="assets/javascript/app.js"></script>
+  <!-- D3 and Cloud -->
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+  <script src="./assets/javascript/cloud.js"></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
 
   <!-- firebase -->
@@ -59,6 +48,11 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <script src="assets/javascript/fireBase.js"></script>
+
+  <!--Local JS file-->
+  <script src="assets/javascript/app.js"></script>
+  
+
 </head>
 
 <body>
@@ -79,7 +73,7 @@
           <div class='dropdown1'>
 
             <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
-                <option selected="true" disabled="disabled">Choose Source 1</option>    
+              <option selected="true" disabled="disabled">Choose Source 1</option>
             </select>
 
           </div>
@@ -87,7 +81,7 @@
           <div class="dropdown2">
 
             <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
-              <option selected="true" disabled="disabled">Choose Source 2</option>    
+              <option selected="true" disabled="disabled">Choose Source 2</option>
             </select>
 
           </div>
@@ -101,6 +95,9 @@
   <br>
 
   <div class='jumbotron' id='articleDiv'></div>
+  <div id="meow">
+
+  </div>
 
 </body>
 

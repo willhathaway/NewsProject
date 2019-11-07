@@ -398,4 +398,4 @@
 
   if (typeof module === "object" && module.exports) module.exports = cloud;
   else (d3.layout || (d3.layout = {})).cloud = cloud;
-});
+})();
