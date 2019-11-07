@@ -67,6 +67,14 @@ body {
     text-align: center;
 }
 
+button{
+    margin: 5px ;
+}
+
+input{
+    margin: 5px;
+}
+
 #leftDiv {
     height: 500px;
     width: 48%;
@@ -106,7 +114,7 @@ body {
     background-color: gainsboro;
 }
 
-.footer {
+/* .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -119,4 +127,4 @@ body {
     border-top-color: royalblue;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-}
+} */
