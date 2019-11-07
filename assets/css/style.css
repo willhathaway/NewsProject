@@ -1,6 +1,7 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
-    background-color: rgb(153, 180, 212);;
+    background-color: rgb(153, 180, 212);
+    ;
     width: 100%;
 }
 
@@ -125,7 +126,7 @@ a {
 }
 
 #word-cloud {
-    height:200px;
+    height: 200px;
     background-color: gainsboro;
 }
 

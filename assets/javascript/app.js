@@ -12,6 +12,14 @@ const commonStr = "i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourse
 const common = commonStr.trim().split(",");
 
 
+// universal variables for the query:
+
+let keyword = '';
+let source1 = '';
+let source2 = '';
+let logo1;
+let logo2;
+
 // an array of objects to hold the information for constructing the query:
 
 let sourceArray = [
