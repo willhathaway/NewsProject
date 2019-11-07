@@ -1,6 +1,16 @@
 // the api key for the news api:
+let api_key = 'a93e9eaa48f8479c927c31d2e61713c0';
 
-let APIkey = 'a93e9eaa48f8479c927c31d2e61713c0';
+// universal variables for the query:
+
+let keyword = '';
+let source1 = '';
+let source2 = '';
+let logo1;
+let logo2;
+const commonStr = "i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+const common = commonStr.trim().split(",");
+
 
 // universal variables for the query:
 
@@ -16,32 +26,32 @@ let sourceArray = [
     fox = {
         name: 'Fox News',
         url: 'foxnews.com',
-        logo: '../images/fox-news-logo.jpg'
+        logo: '../NewsProject/assets/images/fox-news-logo.jpg'
     },
     nytimes = {
         name: 'The New York Times',
         url: 'nytimes.com',
-        logo: '../images/new-york-times-logo.jpg'
+        logo: '../NewsProject/assets/images/new-york-times-logo.jpg'
     },
     wsj = {
         name: 'The Wall Street Journal',
         url: 'wsj.com',
-        logo: '../images/wsj-logo.png'
+        logo: '../NewsProject/assets/images/wsj-logo.png'
     },
     huffpo = {
         name: 'The Huffington Post',
         url: 'huffpost.com',
-        logo: '../images/huffpost-logo.png'
+        logo: '../NewsProject/assets/images/huffpost-logo.png'
     },
     bbc = {
         name: 'BBC News',
-        url: 'bbc.co.uk/news',
-        logo: '../images/bbc-logo.gif'
+        url: 'bbc.co.uk',
+        logo: '../NewsProject/assets/images/bbc-logo.gif'
     },
     aljazeera = {
         name: 'Al Jazeera',
-        url: 'www.aljazeera.com',
-        logo: '../images/aljazeera-logo.png'
+        url: 'aljazeera.com',
+        logo: '../NewsProject/assets/images/aljazeera-logo.png'
     }
 ];
 
@@ -92,6 +102,16 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
     // input validation checking for valid keyword input:
 
+    function commonWord(w) {
+        for (i = 0; i > common.length; i++) {
+            if (w === common[i]) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
     if (keyword == '') {
         alert('please enter a keyword')
         return;
@@ -100,6 +120,9 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
         return;
     } else if (keyword.length < 3) {
         alert('please enter a longer keyword')
+        return;
+    } else if (commonWord(keyword) === false) {
+        alert('please enter a different keyword')
         return;
     } else {
         console.log(keyword);
@@ -115,12 +138,10 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
         return;
     } else {
 
-
-
         // urls for ajax query, dynamically generated with user input:
 
-        let query1 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source1 + '&pageSize=5&apiKey=' + APIkey + '';
-        let query2 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source2 + '&pageSize=5&apiKey=' + APIkey + '';
+        let query1 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source1 + '&pageSize=5&apiKey=' + api_key + '';
+        let query2 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source2 + '&pageSize=5&apiKey=' + api_key + '';
 
         $.ajax({
                 url: query1,
@@ -135,15 +156,16 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
                     // jQuery creating html elements from the response:
 
-                    let articleDivLeft = $('<div class="jumbotron" id="articleDivLeft">');
-                    let logoDiv = $('<img src=' + logo1 + '>');
+                    let articleDivLeft = $('<div class="jumbotron parent" id="articleDivLeft">');
+                    let logoImg = $('<img src=' + logo1 + ' class="logoImg">');
                     let articleContent = $("<div id='articleContent'" + i + ">");
-                    let sourceName = $('<h3 id="sourceName">').text(source1);
+                    let sourceName = $('<a id="sourceName" href=' + source1 + '>');
                     let author = $('<h4 id="author">').text(response.articles[i].author);
                     let datePublished = $('<h4 id="author">').text(response.articles[i].publishedAt);
-                    let wordCloudDiv = $('<div id="word-cloud">');
-                    let title = $("<h3 id='title'>");
+                    let wordCloudDiv = $('<div class="child"id="word-cloud">');
+                    let title = $("<a id='title' href=" + response.articles[i].url + ">");
                     let article = $("<p id='content'>");
+                    
 
                     // modifying the title and article elements:
 
@@ -151,11 +173,11 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     $(title).text(response.articles[i].title);
                     $(article).addClass("article");
                     $(article).text(response.articles[i].content);
-                    $(logoDiv).append(logo1);
+                    $(logoImg).append(logo1);
 
                     // appending the elements to the articleDiv:
 
-                    $(logoDiv).appendTo(articleContent);
+                    $(logoImg).appendTo(articleContent);
                     $(sourceName).appendTo(articleContent);
                     $(title).appendTo(articleContent);
                     $(author).appendTo(articleContent);
@@ -170,7 +192,6 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
                     $(articleContent).appendTo(articleDivLeft);
                     $(articleDivLeft).appendTo(target);
-
 
                 }
             });
@@ -188,14 +209,14 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
                     // jQuery creating html elements from the response:
 
-                    let articleDivRight = $('<div class="jumbotron" id="articleDivRight">');
-                    let logoDiv = $('<img src=' + logo2 + '>');
+                    let articleDivRight = $('<div class="jumbotron parent" id="articleDivRight">');
+                    let logoImg = $('<img src=' + logo2 + ' class="logoImg">');
                     let articleContent = $("<div id='articleContent'" + i + ">");
-                    let sourceName = $('<h3 id="sourceName">').text(source2);
+                    let sourceName = $('<a id="sourceName" href=' + source2 + '>');
                     let author = $('<h4 id="author">').text(response.articles[i].author);
                     let datePublished = $('<h4 id="author">').text(response.articles[i].publishedAt);
-                    let wordCloudDiv = $('<div id="word-cloud">');
-                    let title = $("<h3 id='title'>");
+                    let wordCloudDiv = $('<div class= "child" id="word-cloud">');
+                    let title = $("<a id='title' href=" + response.articles[i].url + ">");
                     let article = $("<p id='content'>");
 
                     // modifying the title and article elements:
@@ -205,11 +226,11 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     $(title).text(response.articles[i].title);
                     $(article).addClass("article");
                     $(article).text(response.articles[i].content);
-                    $(logoDiv).append(logo2);
+                    $(logoImg).append(logo2);
 
                     // appending the elements to the articleDiv:
 
-                    $(logoDiv).appendTo(articleContent);
+                    $(logoImg).appendTo(articleContent);
                     $(sourceName).appendTo(articleContent);
                     $(title).appendTo(articleContent);
                     $(author).appendTo(articleContent);
@@ -233,91 +254,81 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
 // word cloud:
 
-
 let text_string = "Sing in me, Muse, and through me tell the story of that man skilled in all ways of contending, the wanderer, harried for years on end, after he plundered the stronghold on the proud height of Troy. He saw the townlands and learned the minds of many distant men, and weathered many bitter nights and days in his deep heart at sea, while he fought only to save his life, to bring his shipmates home.";
 
 drawWordCloud(text_string);
 
-function drawWordCloud(text_string) {
-    const common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+      function drawWordCloud(text_string){
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
 
-    let word_count = {};
+        var word_count = {};
 
-    let words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
-    if (words.length == 1) {
-        word_count[words[0]] = 1;
-    } else {
-        words.forEach(function (word) {
-            var word = word.toLowerCase();
-            if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
-                if (word_count[word]) {
-                    word_count[word]++;
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+          if (words.length == 1){
+            word_count[words[0]] = 1;
+          } else {
+            words.forEach(function(word){
+              var word = word.toLowerCase();
+              if (word != "" && common.indexOf(word)==-1 && word.length>1){
+                if (word_count[word]){
+                  word_count[word]++;
                 } else {
-                    word_count[word] = 1;
+                  word_count[word] = 1;
                 }
-            }
-        })
-    }
+              }
+            })
+          }
 
-    let svg_location = "#word-cloud";
-    let width = $('#word-cloud').width();
-    let height = $('#word-cloud').height();
+        var svg_location = "#chart";
+        var width = $('#word-cloud').width();
+        var height = $('#word-cloud').height();
 
-    let fill = d3.scale.category20();
+        var fill = d3.scale.category20();
 
+        var word_entries = d3.entries(word_count);
 
-    let word_entries = d3.entries(word_count);
+        var xScale = d3.scale.linear()
+           .domain([0, d3.max(word_entries, function(d) {
+              return d.value;
+            })
+           ])
+           .range([10,100]);
 
-    let xScale = d3.scale.linear()
-        .domain([0, d3.max(word_entries, function (d) {
-            return d.value;
-        })])
-        .range([10, 100]);
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function(d) { return xScale(+d.value); })
+          .text(function(d) { return d.key; })
+          .rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
 
-    d3.layout.cloud().size([width, height])
-        .timeInterval(20)
-        .words(word_entries)
-        .fontSize(function (d) {
-            return xScale(+d.value);
-        })
-        .text(function (d) {
-            return d.key;
-        })
-        .rotate(function () {
-            return ~~(Math.random() * 2) * 90;
-        })
-        .font("Impact")
-        .on("end", draw)
-        .start();
-
-    function draw(words) {
-        d3.select(svg_location).append("svg")
-            .attr("width", width)
-            .attr("height", height)
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+              .attr("width", width)
+              .attr("height", height)
             .append("g")
-            .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+              .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
             .selectAll("text")
-            .data(words)
+              .data(words)
             .enter().append("text")
-            .style("font-size", function (d) {
-                return xScale(d.value) + "px";
-            })
-            .style("font-family", "Impact")
-            .style("fill", function (d, i) {
-                return fill(i);
-            })
-            .attr("text-anchor", "middle")
-            .attr("transform", function (d) {
+              .style("font-size", function(d) { return xScale(d.value) + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", function(d, i) { return fill(i); })
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
                 return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-            })
-            .text(function (d) {
-                return d.key;
-            });
-    }
+              })
+              .text(function(d) { return d.key; });
+        }
 
-    d3.layout.cloud().stop();
-};
+        d3.layout.cloud().stop();
+      }
 
+let wordCloudTest = $('<div>');
+wordCloudTest.append(drawWordCloud(text_string));
+$('#meow').append(wordCloudTest);
 
 // let width = 300;
 // let height = 300;
