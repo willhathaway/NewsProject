@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+  <style>
+    body {
+      font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+    }
+
+    .legend {
+      border: 1px solid #555555;
+      border-radius: 5px 5px 5px 5px;
+      font-size: 0.8em;
+      margin: 10px;
+      padding: 8px;
+    }
+
+    .bld {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="assets/javascript/d3.layout.cloud.js"></script>
+  <script src="assets/javascript/script.js"></script>
   <meta charset="UTF-8">
   <title>News</title>
   <!-- Stylesheet References -->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <script src="assets/javascript/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-
-
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
   <!-- D3 and Cloud -->
-
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
   <script src="./assets/javascript/cloud.js"></script>
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-
-
   <!-- firebase -->
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
@@ -46,57 +50,42 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <script src="assets/javascript/fireBase.js"></script>
-
   <!--Local JS file-->
   <script src="assets/javascript/app.js"></script>
-  
+  </head>
 
-</head>
-
-<body>
-
-
-  <div class="container" id="header">
-    <header>
-      <h1 id="damn">Article Compare</h1>
-    </header>
+  <body>
+    <div class="container" id="header">
+      <header>
+        <h1 id="damn">Article Compare</h1>
+      </header>
+      <br>
+      <form>
+        <div class="row" id="search">
+          <input id="searchBar" type="text" placeholder="What are you searching for?"
+            class="form-control form-control-underlined">
+          <div class='sources'>
+            <div class='dropdown1'>
+              <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
+                <option selected="true" disabled="disabled">Choose Source 1</option>
+              </select>
+            </div>
+            <div class="dropdown2">
+              <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
+                <option selected="true" disabled="disabled">Choose Source 2</option>
+              </select>
+            </div>
+          </div>
+          <div class='row' id='searchBtnDiv'>
+            <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm"
+              id='searchBtn'>Search</button>
+          </div>
+        </div>
+    </div>
     <br>
-    <form>
-      <div class="row" id="search">
-
-        <input id="searchBar" type="text" placeholder="What are you searching for?"
-          class="form-control form-control-underlined">
-
-        <div class='sources'>
-          <div class='dropdown1'>
-
-            <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
-              <option selected="true" disabled="disabled">Choose Source 1</option>
-            </select>
-
-          </div>
-
-          <div class="dropdown2">
-
-            <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
-              <option selected="true" disabled="disabled">Choose Source 2</option>
-            </select>
-
-          </div>
-        </div>
-
-        <div class='row' id='searchBtnDiv'>
-          <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
-        </div>
-      </div>
-  </div>
-  <br>
-
-  <div class='jumbotron' id='articleDiv'></div>
-  <div id="meow">
-
-  </div>
-
-</body>
+    <div class='jumbotron' id='articleDiv'></div>
+    <div id="meow">
+    </div>
+  </body>
 
 </html>
