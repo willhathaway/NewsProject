@@ -19,8 +19,8 @@ body {
 }
 
 .compare {
-    width: 100%;
-    height: 600px;
+    width:100%;
+    height:600px;
     background-color: lavender;
     overflow: auto;
 }
@@ -50,12 +50,12 @@ body {
 
 .dropdown-menu-left {
     width: 50%;
-    float: left;
+    float:left;
 }
 
 .dropdown-menu-right {
     width: 50%;
-    float: left;
+    float:left;
 }
 
 #searchBtn {
@@ -66,6 +66,18 @@ body {
 .articleCol {
     width: 50%;
     float: left;
+}
+
+.logoImg {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+a {
+    font-weight: bold;
+    font-size: 30px;
 }
 
 #articles {
@@ -98,7 +110,7 @@ body {
 #articleDivLeft {
     height: 500px;
     width: 45%;
-    float: left;
+    float:left;
     overflow: auto;
     outline: black solid 1px;
     margin: 1%;
@@ -107,7 +119,7 @@ body {
 #articleDivRight {
     height: 500px;
     width: 45%;
-    float: right;
+    float:right;
     overflow: auto;
     outline: black solid 1px;
     margin: 1%;
@@ -133,10 +145,32 @@ body {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.logs {
-    float: right;
-    /* color: whitesmoke;
-    background-color: teal; */
-    margin: 2px;
-    font-weight: bold;
+
+.parent:hover .child,
+.parent:focus .child {
+  transform: scale(1.4);
+}
+
+.child {
+  width: 100%;
+  height: 100%;
+  background-color: black; /* fallback color */
+  background-position: center;
+  background-size: cover;
+  transition: all .5s;
+}
+
+.child::before {
+  content: "";
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.parent:hover .child:before,
+.parent:focus .child:before {
+  display: block;
 }
