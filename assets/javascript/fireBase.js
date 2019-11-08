@@ -3,15 +3,13 @@ function isUserAuthenticated() {
   $("#message").text('Please sign in');
   return localStorage.getItem('token') !== null;
 }
-
 // isUserAuthenticated();
-
 $(document).ready(function () {
   // if user is signed in, display their name in Welcome message, hide login btn, and show logout btn
   if (isUserAuthenticated()) {
     $('#login').hide();
     $('#logout').show();
-    $("#message").text('Welcome ' + localStorage.name);
+    $("#message").text('Welcome, ' + localStorage.name + '!');
 
     // Otherwise they aren't signed in, so hide the logout btn
   } else {
@@ -65,7 +63,6 @@ let app_fireBase = {};
           $('#login').hide();
           $('#logout').show();
           $("#message").text('Welcome ' + authResult.user.displayName);
-
           // set the token to local storage when a user signs in
           localStorage.setItem('token', authResult.user.refreshToken);
           localStorage.setItem('name', authResult.user.displayName);
