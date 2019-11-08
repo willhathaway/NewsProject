@@ -265,7 +265,6 @@ function drawWordCloud(text_string) {
 
     let fill = d3.scale.category20();
 
-
     let word_entries = d3.entries(word_count);
 
     let xScale = d3.scale.linear()
