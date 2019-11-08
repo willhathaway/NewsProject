@@ -2,33 +2,27 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>News</title>
+
+  <title>CloudCompare</title>
   <!-- Stylesheet References -->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <!-- JavaScript References -->
   <!-- jQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Popper-->
-  <!-- <script src="assets/javascript/popper.min.js"></script> -->
+
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <!--Bootbox-->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js"></script> -->
-  <!--MomentJS-->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script> -->
-  <!-- <script src="lodash.js"></script> -->
-  <!--D3-->
-  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="assets/javascript/d3.layout.cloud.js"></script>
-  <!--Local JS file-->
-  <script src="assets/javascript/app.js"></script>
-  <!-- <script src="assets/javascript/cloud.js" defer></script> -->
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
   <!-- firebase -->
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
@@ -38,76 +32,74 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <script src="assets/javascript/fireBase.js"></script>
-  <script src="assets/javascript/FS.js"></script>
+  <!--Local JS file-->
+  <script src="assets/javascript/app.js"></script>
 </head>
 
 <body>
-  <div class="container-fluid" id="header">
-    <header>
-      <h1 id="damn">Article Compare
-          <div class="row">
-              <div class="col-12">
-                <button id="login" type="button" class="btn btn-lg logs">Login</button>
-                <button id="logout" type="button" class="btn btn-lg logs">Logout</button>
-                <p id="message"></p>
-              </div>
-            </div>
-      </h1>
-    </header>
 
-    <br>
-    <form>
-      <div class="row" id="search">
-        <input id="searchBar" type="text" placeholder="What are you searching for?"
-          class="form-control form-control-underlined">
-        <div class='sources'>
-          <div class='dropdown1'>
-            <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
-              <option selected="true" disabled="disabled">Choose Source 1</option>
-            </select>
+  <div class="container-fluid" id="header">
+    <div class="parent">
+      <div id="imageTron" class="row jumbotron">
+        <div class="col-10"></div>
+        <div class="col-2">
+          <div class="header header-btns"> <button id="login" type="button" class="btn btn-lg logs">Login</button>
+            <button id="logout" type="button" class="btn btn-lg logs">Logout</button>
+            <p id="message"></p>
           </div>
-          <div class="dropdown2">
-            <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
-              <option selected="true" disabled="disabled">Choose Source 2</option>
-            </select>
-          </div>
-        </div>
-        <div class='row' id='searchBtnDiv'>
-          <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm" id='searchBtn'>Search</button>
-        </div>
-      </div>
-      <!-- save data to FB -->
-      <!-- <form id="user-saves">
-        <input id="article_title" type="text" name="news" placeholder="save your article here">
-        <button id="addArt" articleTitle="I like cheese">Save Article</button>
-        <ul id="Saved-Articles"></ul>
-      </form> -->
-  </div>
-  <br>
-  <div class='jumbotron' id='articleDiv'></div>
-  <!-- Modal goes here -->
-  <div class="modal" id="login_modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Welcome!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Please login below</p>
-          <div id="firebaseui-auth-container"></div>
-          <div id="loader">Loading...</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
-  </div>
-  <!--  -->
+    <!-- search -->
+    <br>
+    <div class="row" id="search">
+      <div class="col-12">
+        <form>
+          <input id="searchBar" type="text" placeholder="What are you searching for?"
+            class="form-control form-control-underlined">
+          <div class='sources'>
+            <div class='dropdown1'>
+              <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
+                <option selected="true" disabled="disabled">Choose Source 1</option>
+              </select>
+            </div>
+            <div class="dropdown2">
+              <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
+                <option selected="true" disabled="disabled">Choose Source 2</option>
+              </select>
+            </div>
+          </div>
+          <div class='row' id='searchBtnDiv'>
+            <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm"
+              id='searchBtn'>Search</button>
+          </div>
+      </div>
+    </div>
+    <br>
+    <!-- article jumbotron -->
+    <div class='jumbotron' id='articleDiv'></div>
+    <!-- Modal -->
+    <div class="modal" id="login_modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Welcome!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Please login below</p>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>
