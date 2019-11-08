@@ -62,7 +62,7 @@ let app_fireBase = {};
           $('#login_modal').modal('hide');
           $('#login').hide();
           $('#logout').show();
-          $("#message").text('Welcome ' + authResult.user.displayName);
+          $("#message").text('Welcome, ' + authResult.user.displayName + '!');
           // set the token to local storage when a user signs in
           localStorage.setItem('token', authResult.user.refreshToken);
           localStorage.setItem('name', authResult.user.displayName);
