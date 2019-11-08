@@ -8,7 +8,12 @@ body {
 #header {
     width: 100%;
     position: relative;
+    height: 50px;
 }
+
+/* #login:hover{
+    color: red;
+} */
 
 
 #damn {
@@ -18,12 +23,23 @@ body {
     padding: 10px;
 }
 
+p{
+    font-size: 15px;
+    color: black;
+    width: 170px;
+}
+
 .compare {
     width:100%;
     height:600px;
     background-color: lavender;
     overflow: auto;
 }
+
+/* .row{
+    height: 23px;
+    margin:1px;
+} */
 
 #search {
     background-color: white;
@@ -32,6 +48,26 @@ body {
     float: left;
     outline: black solid 1px;
 
+}
+
+.col-12{
+    max-width: 150px;
+    margin: -60px;
+    /* border: 1px solid black;
+    background-color:white */
+}
+
+.btn-lg{
+    border:1px solid #007bff;
+    background-color: #007bff;
+    border-radius: 50rem!important;
+    color: white;
+    font-size: 15px;
+}
+
+.btn-lg:hover{
+    background-color: #0069D9;
+    color:white
 }
 
 #searchBar {
@@ -46,6 +82,7 @@ body {
 .sources {
     width: 50%;
     float: right;
+    padding: 5px;
 }
 
 .dropdown-menu-left {
@@ -59,7 +96,7 @@ body {
 }
 
 #searchBtn {
-    width: 33%;
+    width: 80px;
     left: 50%;
 }
 
@@ -87,6 +124,14 @@ a {
 
 #sourceName {
     text-align: center;
+}
+
+button{
+    margin: 5px ;
+}
+
+input{
+    margin: 5px;
 }
 
 #leftDiv {
@@ -130,7 +175,7 @@ a {
     background-color: gainsboro;
 }
 
-.footer {
+/* .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -143,6 +188,41 @@ a {
     border-top-color: royalblue;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
+}
+
+/* .logs {
+    float: right;
+    /* color: whitesmoke;
+    background-color: teal; */
+    /* margin: 2px;
+    font-weight: bold;
+} */ 
+
+#compare{
+    border: 1px solid black;
+}
+
+@media screen and (min-width:480px){
+    #sources{
+        width: 200px; 
+        float: left;
+    }
+
+    .dropdown-menu-left .dropdown-menu-right{
+        min-width: 200px;
+        float: left;
+    }
+}
+
+@media screen and (min-width:720px){
+    #sources{
+        width: 200px; 
+        float: left;
+    }
+    .dropdown-menu-left .dropdown-menu-right{
+        width: 200px;
+        float: left;
+    }
 }
 
 

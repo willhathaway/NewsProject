@@ -1,127 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <style>
-        body {
-            font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
-        }
-
-        .legend {
-            border: 1px solid #555555;
-            border-radius: 5px 5px 5px 5px;
-            font-size: 0.8em;
-            margin: 10px;
-            padding: 8px;
-        }
-
-        .bld {
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>News</title>
+  <!-- Stylesheet References -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- JavaScript References -->
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Popper-->
+  <!-- <script src="assets/javascript/popper.min.js"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!--Bootbox-->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js"></script> -->
+  <!--MomentJS-->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script> -->
+  <!-- <script src="lodash.js"></script> -->
+  <!--D3-->
+  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="assets/javascript/d3.layout.cloud.js"></script>
+  <!--Local JS file-->
+  <script src="assets/javascript/app.js"></script>
+  <!-- <script src="assets/javascript/cloud.js" defer></script> -->
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="assets/javascript/fireBase.js"></script>
+  <script src="assets/javascript/FS.js"></script>
 </head>
 
 <body>
 
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="assets/javascript/d3.layout.cloud.js"></script>
-    <script src="assets/javascript/script.js"></script>
-    <meta charset="UTF-8">
-    <title>News</title>
-    <!-- Stylesheet References -->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="assets/javascript/d3.layout.cloud.js"></script>
+  <script src="assets/javascript/script.js"></script>
+  <meta charset="UTF-8">
+  <title>News</title>
+  <!-- Stylesheet References -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="assets/javascript/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <script src="assets/javascript/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!-- D3 and Cloud -->
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
-   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <script src="assets/javascript/fireBase.js"></script>
+  <!-- D3 and Cloud -->
 
-    <!--Local JS file-->
-    <script src="assets/javascript/app.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 
 
-    </head>
-
-    <body>
 
 
-        <div class="container" id="header">
-            <header>
-                <h1 id="damn">Article Compare</h1>
-            </header>
-            <br>
-            <form>
-                <div class="row" id="search">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
-                    <input id="searchBar" type="text" placeholder="What are you searching for?"
-                        class="form-control form-control-underlined">
 
-                    <div class='sources'>
-                        <div class='dropdown1'>
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="assets/javascript/fireBase.js"></script>
 
-                            <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
-                                <option selected="true" disabled="disabled">Choose Source 1</option>
-                            </select>
+  <!--Local JS file-->
+  <script src="assets/javascript/app.js"></script>
 
-                        </div>
 
-                        <div class="dropdown2">
+  </head>
 
-                            <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
-                                <option selected="true" disabled="disabled">Choose Source 2</option>
-                            </select>
+  <body>
 
-                        </div>
-                    </div>
+    <div class="container-fluid" id="header">
+      <header>
+        <h1 id="damn">Article Compare
+          <div class="row">
+            <div class="col-12">
+              <button id="login" type="button" class="btn btn-lg logs">Login</button>
+              <button id="logout" type="button" class="btn btn-lg logs">Logout</button>
+              <p id="message"></p>
+            </div>
+          </div>
+        </h1>
+      </header>
 
-                    <div class='row' id='searchBtnDiv'>
-                        <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm"
-                            id='searchBtn'>Search</button>
-                    </div>
-                </div>
+      <br>
+      <form>
+        <div class="row" id="search">
+          <input id="searchBar" type="text" placeholder="What are you searching for?"
+            class="form-control form-control-underlined">
+          <div class='sources'>
+            <div class='dropdown1'>
+              <select class="dropdown-menu-left" id='left' onchange='selectFunctionLeft(this);'>
+                <option selected="true" disabled="disabled">Choose Source 1</option>
+              </select>
+            </div>
+            <div class="dropdown2">
+              <select class="dropdown-menu-right" id='right' onchange='selectFunctionRight(this);'>
+                <option selected="true" disabled="disabled">Choose Source 2</option>
+              </select>
+            </div>
+          </div>
+          <div class='row' id='searchBtnDiv'>
+            <button type="button" class="btn btn-primary rounded-pill btn-block shadow-sm"
+              id='searchBtn'>Search</button>
+          </div>
         </div>
-        <br>
-
-        <div class='jumbotron' id='articleDiv'></div>
-        <div id="meow">
-
+        <!-- save data to FB -->
+        <!-- <form id="user-saves">
+        <input id="article_title" type="text" name="news" placeholder="save your article here">
+        <button id="addArt" articleTitle="I like cheese">Save Article</button>
+        <ul id="Saved-Articles"></ul>
+      </form> -->
+    </div>
+    <br>
+    <div class='jumbotron' id='articleDiv'></div>
+    <!-- Modal goes here -->
+    <div class="modal" id="login_modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Welcome!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Please login below</p>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
-
-    </body>
+      </div>
+    </div>
+    <!--  -->
+  </body>
 
 </html>
