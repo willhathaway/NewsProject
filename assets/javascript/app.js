@@ -158,7 +158,9 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     let title = $("<a id='title' href=" + response.articles[i].url + ">");
                     let article = $("<p id='content'>");
 
-                    let wordCloudDiv = $('<div id="word-cloud-1">');
+                    let wordCloudDiv = $('<div id="word-cloud-left' + i + '" >');
+                    let cloudID = wordCloudDiv.attr('id');
+                    
 
 
                     // modifying the title and article elements:
@@ -187,7 +189,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     $(articleContent).appendTo(articleDivLeft);
                     $(articleDivLeft).appendTo(target);
 
-                    cloudify(response.articles[i].content, "word-cloud-1", response.articles[i].title);
+                    cloudify(response.articles[i].content, cloudID, response.articles[i].title);
 
 
                 }
@@ -215,8 +217,8 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     let title = $("<a id='title' href=" + response.articles[i].url + ">");
                     let article = $("<p id='content'>");
 
-                    let wordCloudDiv = $('<div id="word-cloud-2">');
-
+                    let wordCloudDiv = $('<div id="word-cloud-right' + i + '" >');
+                    let cloudID = wordCloudDiv.attr('id');
 
                     // modifying the title and article elements:
 
@@ -246,7 +248,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     $(articleContent).appendTo(articleDivRight);
                     $(articleDivRight).appendTo(target);
 
-                    cloudify(response.articles[i].content, "word-cloud-2", response.articles[i].title);
+                    cloudify(response.articles[i].content, cloudID, response.articles[i].title);
 
                 }
             });
