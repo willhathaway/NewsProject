@@ -136,9 +136,9 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
         let query2 = 'https://newsapi.org/v2/everything?language=en&qinTitle=' + keyword + '&domains=' + source2 + '&pageSize=5&apiKey=' + api_key + '';
 
         $.ajax({
-            url: query1,
-            method: "GET"
-        })
+                url: query1,
+                method: "GET"
+            })
 
             .then(function (response) {
 
@@ -189,9 +189,9 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
             });
 
         $.ajax({
-            url: query2,
-            method: "GET"
-        })
+                url: query2,
+                method: "GET"
+            })
 
             .then(function (response) {
 
@@ -282,16 +282,21 @@ function drawWordCloud(text_string) {
     var xScale = d3.scale.linear()
         .domain([0, d3.max(word_entries, function (d) {
             return d.value;
-        })
-        ])
+        })])
         .range([10, 100]);
 
     d3.layout.cloud().size([width, height])
         .timeInterval(20)
         .words(word_entries)
-        .fontSize(function (d) { return xScale(+d.value); })
-        .text(function (d) { return d.key; })
-        .rotate(function () { return ~~(Math.random() * 2) * 90; })
+        .fontSize(function (d) {
+            return xScale(+d.value);
+        })
+        .text(function (d) {
+            return d.key;
+        })
+        .rotate(function () {
+            return ~~(Math.random() * 2) * 90;
+        })
         .font("Impact")
         .on("end", draw)
         .start();
@@ -305,14 +310,20 @@ function drawWordCloud(text_string) {
             .selectAll("text")
             .data(words)
             .enter().append("text")
-            .style("font-size", function (d) { return xScale(d.value) + "px"; })
+            .style("font-size", function (d) {
+                return xScale(d.value) + "px";
+            })
             .style("font-family", "Impact")
-            .style("fill", function (d, i) { return fill(i); })
+            .style("fill", function (d, i) {
+                return fill(i);
+            })
             .attr("text-anchor", "middle")
             .attr("transform", function (d) {
                 return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
-            .text(function (d) { return d.key; });
+            .text(function (d) {
+                return d.key;
+            });
     }
 
     d3.layout.cloud().stop();
