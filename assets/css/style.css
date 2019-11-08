@@ -190,4 +190,26 @@ input{
     border: 1px solid black;
 }
 
+@media screen and (min-width:480px){
+    #sources{
+        width: 200px; 
+        float: left;
+    }
+
+    .dropdown-menu-left .dropdown-menu-right{
+        min-width: 200px;
+        float: left;
+    }
+}
+
+@media screen and (min-width:720px){
+    #sources{
+        width: 200px; 
+        float: left;
+    }
+    .dropdown-menu-left .dropdown-menu-right{
+        width: 200px;
+        float: left;
+    }
+}
 
