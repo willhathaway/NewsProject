@@ -2,6 +2,10 @@
 let api_key = 'a93e9eaa48f8479c927c31d2e61713c0';
 
 // universal variables for the query:
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6c923afcaf4a0503a334f3e88d14977154beb701
 let logo1;
 let logo2;
 const commonStr = "i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
@@ -9,6 +13,10 @@ const common = commonStr.trim().split(",");
 
 
 // universal variables for the query:
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6c923afcaf4a0503a334f3e88d14977154beb701
 let keyword = '';
 let source1 = '';
 let source2 = '';
@@ -158,6 +166,10 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     let title = $("<a id='title' href=" + response.articles[i].url + ">");
                     let article = $("<p id='content'>");
 
+                    let wordCloudDiv = $('<div class="cloud" id="word-cloud-left' + i + '" >');
+                    let cloudID = wordCloudDiv.attr('id');
+                    
+
 
                     let wordCloudDiv = $('<div id="word-cloud-left' + i + '" >');
                     let cloudID = wordCloudDiv.attr('id');
@@ -190,9 +202,7 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     $(articleContent).appendTo(articleDivLeft);
                     $(articleDivLeft).appendTo(target);
 
-
                     cloudify(response.articles[i].content, cloudID, response.articles[i].title);
-
 
 
                 }
@@ -220,13 +230,10 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     let title = $("<a id='title' href=" + response.articles[i].url + ">");
                     let article = $("<p id='content'>");
 
-
-                    let wordCloudDiv = $('<div id="word-cloud-right' + i + '" >');
+                    let wordCloudDiv = $('<div class="cloud" id="word-cloud-right' + i + '" >');
                     let cloudID = wordCloudDiv.attr('id');
 
-
                     // modifying the title and article elements:
-
 
                     $(title).addClass("title");
                     $(title).text(response.articles[i].title);
@@ -253,19 +260,14 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
                     $(articleContent).appendTo(articleDivRight);
                     $(articleDivRight).appendTo(target);
 
-
                     cloudify(response.articles[i].content, cloudID, response.articles[i].title);
-
 
                 }
             });
     }
 });
 
-
-
-// var text =
-//     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum erat ac justo sollicitudin, quis lacinia ligula fringilla. Pellentesque hendrerit, nisi vitae posuere condimentum, lectus urna accumsan libero, rutrum commodo mi lacus pretium erat. Phasellus pretium ultrices mi sed semper. Praesent ut tristique magna. Donec nisl tellus, sagittis ut tempus sit amet, consectetur eget erat. Sed ornare gravida lacinia. Curabitur iaculis metus purus, eget pretium est laoreet ut. Quisque tristique augue ac eros malesuada, vitae facilisis mauris sollicitudin. Mauris ac molestie nulla, vitae facilisis quam. Curabitur placerat ornare sem, in mattis purus posuere eget. Praesent non condimentum odio. Nunc aliquet, odio nec auctor congue, sapien justo dictum massa, nec fermentum massa sapien non tellus. Praesent luctus eros et nunc pretium hendrerit. In consequat et eros nec interdum. Ut neque dui, maximus id elit ac, consequat pretium tellus. Nullam vel accumsan lorem.';
+// word cloud function, takes arguments for the text, the location and the title:
 
 function cloudify(text, location, title) {
 
