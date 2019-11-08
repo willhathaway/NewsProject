@@ -160,11 +160,8 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
 
                     let wordCloudDiv = $('<div class="cloud" id="word-cloud-left' + i + '" >');
                     let cloudID = wordCloudDiv.attr('id');
-                    
 
 
-                    let wordCloudDiv = $('<div id="word-cloud-left' + i + '" >');
-                    let cloudID = wordCloudDiv.attr('id');
 
 
 
