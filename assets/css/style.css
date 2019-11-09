@@ -90,12 +90,12 @@ p {
 }
 
 .dropdown-menu-left {
-    width: 50%;
+    /* width: 50%; */
     float: left;
 }
 
 .dropdown-menu-right {
-    width: 50%;
+    /* width: 50%; */
     float: left;
 }
 
@@ -195,12 +195,17 @@ input {
     }
 
     .dropdown-menu-left .dropdown-menu-right {
-        min-width: 200px;
+        width: 80%;
         float: left;
     }
 
     #searchBtn {
-        width: 60px;
+        width: 70px;
+    }
+
+    #searchBar {
+        width: 40%;
+        
     }
 }
 
@@ -213,6 +218,10 @@ input {
     .dropdown-menu-left .dropdown-menu-right {
         width: 200px;
         float: left;
+    }
+
+    #searchBar {
+        width: 44%;
     }
 }
 
