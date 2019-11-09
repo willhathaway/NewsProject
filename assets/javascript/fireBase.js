@@ -48,22 +48,23 @@ let app_fireBase = {};
 
   app_fireBase = firebase;
 })();
-
+// console.log(firebase);
 (function () {
   // Initialize the FirebaseUI Widget using Firebase.
   let ui = new firebaseui.auth.AuthUI(firebase.auth());
   let uiConfig = {
     callbacks: {
-      signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+      signInSuccessWithAuthResult: function (authResult) {
         // User successfully signed in.
-        // Return type determines whether we continue the redirect automatically
         if (authResult) {
+          // console.log auth result to get token info, name, userID
           console.log(authResult)
           $('#login_modal').modal('hide');
           $('#login').hide();
           $('#logout').show();
           $("#message").text('Welcome, ' + authResult.user.displayName + '!');
           // set the token to local storage when a user signs in
+          // refresh token allows you to have short - lived access tokens without having to collect credentials every single time one expires.You request this token alongside the access and / or ID tokens as part of a user 's initial authentication flow.
           localStorage.setItem('token', authResult.user.refreshToken);
           localStorage.setItem('name', authResult.user.displayName);
           localStorage.setItem('userID', authResult.user.uid);
@@ -88,7 +89,7 @@ let app_fireBase = {};
   ui.start('#firebaseui-auth-container', uiConfig);
 })();
 //
-let mainApp = {};
+// let mainApp = {};
 
 (function () {
   let firebase = app_fireBase;

@@ -17,6 +17,14 @@ body {
     /* margin-left: 18%; */
 }
 
+#logout {
+    padding: .2rem .7rem;
+    color: white;
+    background-color: #007bff;
+    border-radius: 50rem;
+    /* margin-left: 18%; */
+}
+
 .header-btns {
     width: fit-content;
     padding: 5px;
