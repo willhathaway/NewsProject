@@ -106,16 +106,16 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
     }
 
     if (keyword == '') {
-        alert('please enter a keyword')
+        $('#searchmodal').modal('show');
         return;
     } else if (keyword.includes(' ')) {
-        alert('please enter only one word')
+        $('#searchmodal').modal('show');
         return;
     } else if (keyword.length < 3) {
-        alert('please enter a longer keyword')
+        $('#searchmodal').modal('show');
         return;
     } else if (commonWord(keyword) === false) {
-        alert('please enter a different keyword')
+        $('#searchmodal').modal('show');
         return;
     } else {
         console.log(keyword);
@@ -124,10 +124,10 @@ $(document).on('click', '#searchBtn', function articleFunction(event) {
     // input validation for valid source selection:
 
     if (source1 === '') {
-        alert('please select a source');
+        $('#searchmodal').modal('show');
         return;
     } else if (source2 === '') {
-        alert('please select a source');
+        $('#searchmodal').modal('show');
         return;
     } else {
 
