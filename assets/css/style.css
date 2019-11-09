@@ -40,6 +40,7 @@ body {
     background-image: url(../images/cityscapNight.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    /* object-fit: fill; */
 }
 
 p {
@@ -189,6 +190,14 @@ input {
 }
 
 @media screen and (max-width:480px) {
+    .container-fluid {
+        max-width: 100%;
+    }
+
+    .jumbotron {
+        padding: 0%;
+    }
+
     #sources {
         width: 50px;
         float: left;
@@ -205,7 +214,7 @@ input {
 
     #searchBar {
         width: 40%;
-        
+
     }
 }
 
@@ -222,6 +231,10 @@ input {
 
     #searchBar {
         width: 44%;
+    }
+
+    .jumbotron {
+        padding: 0%;
     }
 }
 
