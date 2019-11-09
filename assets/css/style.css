@@ -231,7 +231,7 @@ input {
     transition: all .5s;
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:575px) {
     #sources {
         width: 200px;
         float: left;
