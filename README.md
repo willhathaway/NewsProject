@@ -9,3 +9,4 @@
 # Want to conduct further investigation? Well then, you can click on the article window and you will be redirected to the source.
 
 # Thanks for checking out Cloud Compare!
+# https://willhathaway.github.io/NewsProject/
