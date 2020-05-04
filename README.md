@@ -12,6 +12,9 @@ The sites currently available for comparison are The Huffington Post, The New Yo
 
 Want to conduct further investigation? Well then, you can click on the article window and you will be redirected to the source.
 
+![news-app-image](https://github.com/willhathaway/NewsProject/blob/master/Screen%20Shot%202020-05-04%20at%209.31.16%20AM.png
+)
+
 Technologies used: Highcharts, jQuery, Firebase Authentication, News API
 
 Thanks for checking out Cloud Compare!
