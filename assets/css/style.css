@@ -42,14 +42,22 @@ body {
 }
 
 #imageTron {
-    height: -webkit-fill-available;
+    height: 300px;
     border-radius: 5pt;
     border: 1px solid black;
-    background-image: url(../images/cityscapNight.jpg);
+    margin: 10px;
+    background-color: slategrey;
     background-repeat: no-repeat;
     background-size: cover;
     /* object-fit: fill; */
 }
+
+.title {
+    color: white;
+    font-size: 5rem;
+
+}
+
 
 p {
     font-size: 15px;
@@ -63,6 +71,7 @@ p {
     height: 600px;
     background-color: lavender;
     overflow: auto;
+    margin:10px;
 }
 
 #search {
